@@ -14,9 +14,14 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Awesome App (XPF)"),
       ),
-      body: Container(
-        child: Center(
-          child: Text("Hello in awesome app")),
+      body: Center(
+        child: Container(
+          color: Colors.teal[400],
+          width: 100,
+          height: 100,
+          child: Text("A small box"),
+          padding: const EdgeInsets.all(8),
+        ),
       ),
     );
   }
