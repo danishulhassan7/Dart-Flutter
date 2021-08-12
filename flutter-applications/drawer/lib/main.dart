@@ -19,8 +19,36 @@ class DrawerApp extends StatelessWidget {
       appBar: AppBar(
         title: Text("XPF Mail"),
       ),
-      body: Container(
-        
+      body: Container(),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget> [
+            DrawerHeader(
+              child: Text("Account Login Dashboard",style: TextStyle(color: Colors.white),),
+              decoration: BoxDecoration(
+                color: Colors.teal,
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text("My Account"),
+              subtitle: Text("Personal Account"),
+              trailing: Icon(Icons.edit),
+            ),
+              ListTile(
+              leading: Icon(Icons.email),
+              title: Text("Email"),
+              subtitle: Text("danishulhassan@gmail.com"),
+              trailing: Icon(Icons.send),
+            )
+          ],
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked, //by defualt
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.edit),
       ),
     );
   }
