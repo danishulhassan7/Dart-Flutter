@@ -10,7 +10,7 @@ void main() {
         ),
         body: Center(
           child: Image(
-            image: AssetImage("images/dp.png"),
+            image: AssetImage("images/dp.png")
           ),
         ),
       ),
