@@ -24,12 +24,22 @@ class DrawerApp extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget> [
-            DrawerHeader(
-              child: Text("Account Login Dashboard",style: TextStyle(color: Colors.white),),
-              decoration: BoxDecoration(
-                color: Colors.teal,
+            // Simple Text Header
+            // DrawerHeader(
+            //   child: Text("Account Login Dashboard",style: TextStyle(color: Colors.white),),
+            //   decoration: BoxDecoration(
+            //     color: Colors.teal,
+            //   ),
+            // ),
+            UserAccountsDrawerHeader(
+              accountName: Text("Danish Ul Hassan"),
+              accountEmail: Text("danishulhassan7@gmail.com"),
+              currentAccountPicture: CircleAvatar(
+                child: Image(
+                  image: AssetImage("assets/dp.png"),
+                ),
               ),
-            ),
+               ),
             ListTile(
               leading: Icon(Icons.person),
               title: Text("My Account"),
