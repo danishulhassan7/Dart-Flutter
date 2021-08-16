@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
-    title: "My First Drawer in Flutter",
+    title: "My First Card in Flutter",
     home: DrawerApp(),
     theme: ThemeData(
-      primarySwatch: Colors.teal,
+      primarySwatch: Colors.purple,
     ),
   ));
 }
@@ -16,10 +16,19 @@ class DrawerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueGrey[50],
       appBar: AppBar(
         title: Text("XPF Mail"),
       ),
-      body: Container(),
+      body: Center(
+        child: Card(
+          child: Column(
+            children: <Widget>[
+              Image.asset("assets/gg.PNG"),
+            ],
+          ),
+        ),
+      ),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
