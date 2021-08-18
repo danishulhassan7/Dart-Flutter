@@ -5,8 +5,11 @@ class BgImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset("gg.png",
-                 fit: BoxFit.cover,
-                 height: 300);
+    return Image.asset(
+      "gg.png",
+      fit: BoxFit.cover,
+      colorBlendMode: BlendMode.darken,
+      color: Colors.black.withOpacity(0.8),
+      );
   }
 }
