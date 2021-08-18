@@ -1,6 +1,7 @@
 import 'package:cards_stful/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 
 class DrawerApp extends StatefulWidget {
@@ -24,7 +25,8 @@ class _DrawerAppState extends State<DrawerApp> {
 
   getData() async{
     dynamic result = await  http.get(Uri.parse(url));
-    print(result.body);
+    data = jsonDecode(result.body);
+    setState(() {});
   }
 
   @override
@@ -37,7 +39,24 @@ class _DrawerAppState extends State<DrawerApp> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: data != null
-          ? SingleChildScrollView(child: Card())
+          ? ListView.builder(
+            // --- Method for gridview
+            // gridDelegate: 
+            //   SliverGridDelegateWithFixedCrossAxisCount(
+            //     crossAxisCount: 2
+            //     ),
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ListTile(
+                  // leading: Image.network((data[index]["url"])),
+                  title: Text(data[index]["title"]),
+                  subtitle: Text("ID: ${(data[index]["id"])}"),
+                ),
+              );
+            },
+            itemCount: data.length,
+            )
           : Center(
             child: CircularProgressIndicator(),
         ),
