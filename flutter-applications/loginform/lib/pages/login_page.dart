@@ -64,6 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                               //   context, MaterialPageRoute(builder: (context)=> DrawerApp()),
                               // );
                               // 2nd Method
+                              Navigator.pushNamed(context, "/home");
                             },
                              child: Text("Login"),
                              style: ElevatedButton.styleFrom(
