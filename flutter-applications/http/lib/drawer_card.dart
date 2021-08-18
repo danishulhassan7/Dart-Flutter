@@ -1,22 +1,30 @@
-import 'package:cards_stful/bg_image.dart';
 import 'package:cards_stful/drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
 
 class DrawerApp extends StatefulWidget {
   const DrawerApp({ Key? key }) : super(key: key);
-
   @override
   _DrawerAppState createState() => _DrawerAppState();
 }
 
 class _DrawerAppState extends State<DrawerApp> {
-
   TextEditingController _nameController = TextEditingController();
   var myText = "Change the Text";
+  var url = "https://jsonplaceholder.typicode.com/photos/";
+  var data;
+
 
   @override
   void initState() {
     super.initState();
+    getData();
+  }
+
+  getData() async{
+    dynamic result = await  http.get(Uri.parse(url));
+    print(result.body);
   }
 
   @override
@@ -28,36 +36,10 @@ class _DrawerAppState extends State<DrawerApp> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Card(
-            child: Column(
-              children: <Widget>[
-                BgImage(),
-                 SizedBox(
-                   height: 10,
-                 ),
-                 Text(
-                   myText,
-                   style: TextStyle(fontSize: 20,fontWeight:FontWeight.bold)),
-                 SizedBox(
-                   height: 20,
-                 ),
-                 Padding(
-                   padding: const EdgeInsets.all(16.0),
-                   child: TextField(
-                     //obscureText: true,
-                    // keyboardType: TextInputType.number,
-                    controller: _nameController,
-                     decoration: InputDecoration(
-                       border: OutlineInputBorder(),
-                       hintText: "Enter your name",
-                       labelText: "Name",
-                     ),
-                   ),
-                 ),
-              ],
-            ),
-          ),
+        child: data != null
+          ? SingleChildScrollView(child: Card())
+          : Center(
+            child: CircularProgressIndicator(),
         ),
       ),
       drawer: MyDrawer(),
