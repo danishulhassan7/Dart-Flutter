@@ -90,6 +90,18 @@ class _ButtonWidgetState extends State<ButtonWidget> {
                 ),
               ],
             ),
+            SizedBox(
+              height: 100,
+              ),
+            Center(
+              child: Text("Counter Application",
+                style: TextStyle(
+                    fontSize: 24,
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.bold
+                  ),
+              ),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
