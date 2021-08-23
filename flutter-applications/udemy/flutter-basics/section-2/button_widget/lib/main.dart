@@ -23,10 +23,23 @@ class ButtonWidget extends StatefulWidget {
 class _ButtonWidgetState extends State<ButtonWidget> {
 
   String _str = "Google Flutter";
+  int _initialValue = 0;
 
   void _pressBtn(String str) {
     setState(() {
       _str = str;
+    });
+  }
+
+  void _addition() {
+    setState(() {
+      _initialValue++;
+    });
+  }
+
+    void _subtraction() {
+    setState(() {
+      _initialValue--;
     });
   }
 
@@ -80,10 +93,10 @@ class _ButtonWidgetState extends State<ButtonWidget> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(_str,
+                Text("Value:  $_initialValue",
                 style: TextStyle(
                   fontSize: 24,
-                  color: Colors.white,
+                  color: Colors.blueGrey,
                   fontStyle: FontStyle.italic,
                   fontWeight: FontWeight.bold
                 ),
@@ -91,10 +104,16 @@ class _ButtonWidgetState extends State<ButtonWidget> {
                 SizedBox(
                   width: 20,
                 ),
-                // IconButton(
-                //   onPressed: () {},
-                //    icon: Icon(Icons.remove)
-                //    ),
+                IconButton(
+                  onPressed: _addition,
+                   icon: Icon(Icons.add),
+                   color: Colors.green,
+                   ),
+                IconButton(
+                  onPressed: _subtraction,
+                   icon: Icon(Icons.remove),
+                   color: Colors.red,
+                   ),
               ],
             ),
           ],
