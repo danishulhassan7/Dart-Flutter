@@ -30,7 +30,13 @@ class _MyAppState extends State<MyApp> {
     List<Widget> list = <Widget> [];
 
     for(int i = 0; i < 3; i++) {
-      list.add(Radio(value: i, groupValue: _value1, onChanged: _setValue1));
+      list.add(
+        Radio(
+          value: i,
+          groupValue: _value1,
+           onChanged: _setValue1
+        )
+      );
     }
 
     Column column = Column (children: [],);
@@ -41,7 +47,18 @@ class _MyAppState extends State<MyApp> {
     List<Widget> list = <Widget>[];
 
     for(int i =0; i < 3; i++) {
-      list.add(RadioListTile(value: i, groupValue: _value2, onChanged: _setValue2));
+      list.add(
+        RadioListTile(
+          value: i,
+          groupValue: _value2,
+           onChanged: _setValue2,
+           activeColor: Colors.green,
+           controlAffinity: ListTileControlAffinity.trailing,
+           title: Text("Cricketer no # $i"),
+           subtitle: Text("PK"),
+           secondary: Icon(Icons.play_circle_fill),
+          )
+      );
     }
 
     Column column = Column (children: [],);
