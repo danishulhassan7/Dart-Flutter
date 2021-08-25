@@ -20,7 +20,23 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 
-
+Future _showAlertDialogBox() async {
+  await showDialog(
+    context: context,
+     builder: (BuildContext context) {
+       return AlertDialog(
+         title: Text("Do you really like flutter?",
+         style: TextStyle(
+           color:Colors.teal
+         ),
+         ),
+         actions: <Widget>[
+           IconButton(onPressed: () => Navigator.pop(context), icon: Icon(Icons.close, color: Colors.red,))
+         ],
+       );
+     }
+  );
+}
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +50,10 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             children: <Widget>[
               Text("This is where the Magic happens"),
+              SizedBox(
+                height: 10,
+              ),
+              IconButton(onPressed: _showAlertDialogBox, icon: Icon(Icons.lock))
             ],
           ),
         ),
