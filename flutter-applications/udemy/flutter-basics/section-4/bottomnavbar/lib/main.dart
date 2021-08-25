@@ -22,22 +22,14 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 
-  String _str = "";
-  int _val = 0;
-  List<BottomNavigationBarItem> _items = [];
+  int _currentIndex = 0;
+  final List<Widget> _children = [];
 
-  @override
-  void initState() {
-    super.initState();
-    List<BottomNavigationBarItem> _items = [];
-    _items.add(BottomNavigationBarItem(icon: Icon(Icons.people, )));
-    _items.add(BottomNavigationBarItem(icon: Icon(Icons.weekend, )));
-    _items.add(BottomNavigationBarItem(icon: Icon(Icons.message, )));
-  }
-
-
-
-
+  void onTabTapped(int index) {
+   setState(() {
+     _currentIndex = index;
+   });
+ }
 
   @override
   Widget build(BuildContext context) {
@@ -50,22 +42,33 @@ class _MyAppState extends State<MyApp> {
         child: Center(
           child: Column(
             children:<Widget> [
-              Text("Value: $_str")
+              Text("Bottom Navigation bar",
+              style: TextStyle(
+                fontSize: 22
+              ),),
           ],
           ),
         ),
       ),
-      bottomNavigationBar:  BottomNavigationBar(
-        items: _items,
-        fixedColor: Colors.blue,
-        currentIndex: _val,
-        onTap: (int item) {
-          setState(() {
-            _val = item;
-            _str = "Current Value is: ${_val.toString()}";
-          });
-        },
-        )
+      bottomNavigationBar: BottomNavigationBar(
+       onTap: onTabTapped, // new
+       currentIndex: _currentIndex, // new // this will be set when a new tab is tapped
+       items: [
+         BottomNavigationBarItem(
+           icon: new Icon(Icons.home),
+           label: "Home",
+         ),
+         BottomNavigationBarItem(
+           icon: new Icon(Icons.mail),
+           label: "Messages",
+         ),
+         BottomNavigationBarItem(
+           icon: Icon(Icons.person),
+           label: "Account"
+         )
+       ],
+     ),
     );
   }
 }
+
