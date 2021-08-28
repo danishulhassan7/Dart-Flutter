@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.rowcol">
+    package="com.example.display_name">
    <application
-        android:label="rowcol"
+        android:label="display_name"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

@@ -1,6 +1,6 @@
 {
-    "name": "rowcol",
-    "short_name": "rowcol",
+    "name": "display_name",
+    "short_name": "display_name",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
