@@ -31,10 +31,17 @@ class _AsgState extends State<Asg> {
  
 
   var _str = "";
+  var _display = "";
 
-  void _displayName(var str) {
+  void _onChanged(var str) {
     setState(() {
-      _str = "Your name is, $str";
+      _str = str;
+    });
+  }
+
+  void _displayName() {
+    setState(() {
+      _display = _str;
     });
   }
   
@@ -57,7 +64,7 @@ class _AsgState extends State<Asg> {
                 width: 10,
               ),
               Expanded(child: TextField(
-                onSubmitted: _displayName,
+                onChanged: _onChanged,
               ),),
               SizedBox(
                 height: 70,
@@ -66,7 +73,11 @@ class _AsgState extends State<Asg> {
               ),
               Row(
                 children: <Widget>[
-                  Center(child: Text(_str)),
+                  Center(
+                    child: ElevatedButton(onPressed: _displayName, child: Text("Hit Submit"))
+                    ),
+                    SizedBox(width: 50,),
+                    Center(child: Text(_display))
                 ],
               )
             ],
