@@ -8,6 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "Practice: Google Flutter",
       theme: ThemeData(
         primarySwatch: Colors.lime
@@ -30,7 +31,7 @@ class _AsgState extends State<Asg> {
 
   void _displayName() {
     setState(() {
-      _str = "MY name is Danish Ul Hassan";
+      _str = "My name is Danish Ul Hassan";
     });
   }
 
