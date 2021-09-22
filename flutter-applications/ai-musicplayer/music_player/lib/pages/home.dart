@@ -24,8 +24,14 @@ class Home extends StatelessWidget {
             ))
             .make(),
             AppBar(
-              title: "AI MusicPlayer".text.xl2.bold.white.make(),
-            ),
+              title: "AI MusicPlayer".text.xl2.bold.white.make().shimmer(
+                primaryColor: Vx.purple400,
+                secondaryColor: Vx.white
+              ),
+              backgroundColor: Colors.transparent,
+              centerTitle: true,
+              elevation: 0.0,
+            ).h(60.0).p(12.0)
         ],
       ),
     );

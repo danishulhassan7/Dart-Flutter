@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:music_player/pages/home.dart';
 
 
@@ -17,7 +18,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "AI Flutter MusicPlayer",
-      theme: ThemeData(),
+      theme: ThemeData(
+        fontFamily: GoogleFonts.poppins().fontFamily
+      ),
       debugShowCheckedModeBanner: false,
       home: Home(),
     );
