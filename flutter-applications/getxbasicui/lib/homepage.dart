@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'customcolors.dart' as clr;
 
@@ -14,11 +16,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: clr.AppColor.homePageBackground,
       body: Container(
-        padding: const EdgeInsets.only(
-          top: 50,
-          left: 30,
-          right: 30
-        ),
+        padding: const EdgeInsets.only(top: 50, left: 30, right: 30),
         child: Column(
           children: [
             Row(
@@ -32,26 +30,20 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Expanded(child: Container()),
                 Icon(Icons.arrow_back_ios,
-                  size: 20,
-                  color: clr.AppColor.homePageIcons
+                    size: 20, color: clr.AppColor.homePageIcons),
+                SizedBox(
+                  width: 6,
                 ),
-                SizedBox(width: 6,),
                 Icon(Icons.calendar_today_outlined,
-                  size: 20,
-                  color: clr.AppColor.homePageIcons
-                ),
+                    size: 20, color: clr.AppColor.homePageIcons),
                 SizedBox(
                   width: 12,
                 ),
                 Icon(Icons.arrow_forward_ios,
-                  size: 20,
-                  color: clr.AppColor.homePageIcons
-                ),
+                    size: 20, color: clr.AppColor.homePageIcons),
               ],
             ),
-            SizedBox(
-              height: 30,
-            ),
+            SizedBox(height: 30,),
             Row(
               children: [
                 Text(
@@ -65,45 +57,126 @@ class _HomePageState extends State<HomePage> {
                 Text(
                   "Details",
                   style: TextStyle(
-                      fontSize: 20,
-                      color: clr.AppColor.homePageDetail,
+                    fontSize: 20,
+                    color: clr.AppColor.homePageDetail,
+                  ),
                 ),
+                SizedBox(
+                  width: 5,
                 ),
-                SizedBox(width: 5,),
-                Icon(Icons.arrow_forward,
-                size: 20,
-                color: clr.AppColor.homePageIcons,
+                Icon(
+                  Icons.arrow_forward,
+                  size: 20,
+                  color: clr.AppColor.homePageIcons,
                 )
               ],
             ),
             SizedBox(height: 20,),
             Container(
               width: MediaQuery.of(context).size.width,
-              height: 230,
+              height: 220,
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    clr.AppColor.gradientFirst.withOpacity(0.8),
-                    clr.AppColor.gradientSecond.withOpacity(0.9),
-                  ],
-                  begin: Alignment.bottomLeft,
-                  end: Alignment.centerRight,
-                ),
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(10),
-                  bottomLeft: Radius.circular(10),
-                  bottomRight: Radius.circular(10),
-                  topRight: Radius.circular(65),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    offset: Offset(7, 10),
-                    blurRadius:12,
-                    color: clr.AppColor.gradientSecond.withOpacity(0.2),
+                  gradient: LinearGradient(
+                    colors: [
+                      clr.AppColor.gradientFirst.withOpacity(0.8),
+                      clr.AppColor.gradientSecond.withOpacity(0.9),
+                    ],
+                    begin: Alignment.bottomLeft,
+                    end: Alignment.centerRight,
                   ),
-                ]
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                    bottomLeft: Radius.circular(10),
+                    bottomRight: Radius.circular(10),
+                    topRight: Radius.circular(65),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      offset: Offset(7, 10),
+                      blurRadius: 12,
+                      color: clr.AppColor.gradientSecond.withOpacity(0.2),
+                    ),
+                  ]),
+              child: Container(
+                padding: const EdgeInsets.only(left: 16, top: 26, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Live Score",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: clr.AppColor.homePageContainerTextSmall,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      "Follow us to get",
+                      style: TextStyle(
+                        fontSize: 24,
+                        color: clr.AppColor.homePageContainerTextSmall,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      "Ball by ball updates",
+                      style: TextStyle(
+                        fontSize: 24,
+                        color: clr.AppColor.homePageContainerTextSmall,
+                      ),
+                    ),
+                    SizedBox(height: 30,),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.timer,
+                              size: 20,
+                              color: clr.AppColor.homePageContainerTextSmall,
+                            ),
+                            SizedBox(
+                              width: 7,
+                            ),
+                            Text(
+                              "30 minutes",
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: clr.AppColor.homePageContainerTextSmall,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Expanded(child: Container()),
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            boxShadow: [
+                              BoxShadow(
+                              color: clr.AppColor.gradientFirst,
+                              offset: Offset(6, 7),
+                              blurRadius: 12,
+                            ),
+                            ],
+                          ),
+                          child: Icon(
+                            Icons.play_circle_fill_outlined,
+                            size: 50,
+                            color: clr.AppColor.homePageContainerTextSmall,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
+
           ],
         ),
       ),
