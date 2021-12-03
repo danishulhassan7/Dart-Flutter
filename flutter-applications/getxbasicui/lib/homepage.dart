@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'customcolors.dart' as clr;
 
 
 
@@ -13,7 +14,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.red,
+      backgroundColor: clr.AppColor.homePageBackground,
       body: Container(
         padding: const EdgeInsets.only(
           top: 50,
