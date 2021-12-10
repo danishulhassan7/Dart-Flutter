@@ -1,7 +1,12 @@
+import 'dart:convert';
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'customcolors.dart' as clr;
+
+
+
+
+
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,6 +16,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  List info = [];
+
+  _initJsonData() {
+    DefaultAssetBundle.of(context).loadString("json/info.json").then(
+      (value) {
+        info = json.decode(value);
+      });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _initJsonData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -271,25 +292,103 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            Expanded(child: ListView.builder(
-              itemBuilder: (_, i) {
-                return Row(
-                  children: [
-                    Container(
-                      width:200,
-                      height: 165,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        image: DecorationImage(
-                          image: AssetImage(
-                            "assets/ex1.png"
+            Expanded(child: OverflowBox(
+              maxWidth: MediaQuery.of(context).size.width,
+              child: MediaQuery.removePadding(
+                removeTop: true,
+                context: context,
+                child: ListView.builder(
+                  itemCount: (info.length.toDouble()/2).toInt(),
+                  itemBuilder: (_, i) {
+                    int a = 2*i; //0, 2, 4, 6 ...
+                    int b = 2*i + 1; //1, 3, 5, 7 ...
+                    return Row(
+                      children: [
+                        Container(
+                          width:(MediaQuery.of(context).size.width-90)/2,
+                          height: 170,
+                          margin: const EdgeInsets.only(left: 30, bottom:15, top: 15,),
+                          padding: const EdgeInsets.only(bottom: 10,),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                            image: DecorationImage(
+                              image: AssetImage(
+                                info[a]["img"]
+                              ),
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 3,
+                                offset: Offset(5, 5),
+                                color: clr.AppColor.gradientSecond.withOpacity(0.3),
+                              ),
+                              BoxShadow(
+                                blurRadius: 3,
+                                offset: Offset(-5, -5),
+                                color: clr.AppColor.gradientSecond.withOpacity(0.3),
+                              ),
+                            ],
+                          ),
+                          child: Center(
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(
+                                info[a]["title"],
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: clr.AppColor.homePageDetail,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                    ),
-                  ],
-                );
-              }),
+                        Container(
+                          width:(MediaQuery.of(context).size.width-90)/2,
+                          height: 170,
+                          margin: const EdgeInsets.only(left: 30, bottom:15, top: 15,),
+                          padding: const EdgeInsets.only(bottom: 10,),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                            image: DecorationImage(
+                              image: AssetImage(
+                                info[b]["img"]
+                              ),
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 3,
+                                offset: Offset(5, 5),
+                                color: clr.AppColor.gradientSecond.withOpacity(0.3),
+                              ),
+                              BoxShadow(
+                                blurRadius: 3,
+                                offset: Offset(-5, -5),
+                                color: clr.AppColor.gradientSecond.withOpacity(0.3),
+                              ),
+                            ],
+                          ),
+                          child: Center(
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(
+                                info[b]["title"],
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: clr.AppColor.homePageDetail,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    );
+                  }),
+              ),
+            ),
               ),
 
           ],
