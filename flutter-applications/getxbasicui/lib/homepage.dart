@@ -223,9 +223,75 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
+                  Container(
+                    height: 100,
+                    width: double.maxFinite,
+                    // color: Colors.redAccent.withOpacity(0.3),
+                    margin: const EdgeInsets.only(left: 165, top: 42, right: 10,),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Cricket Fantasy League : XPF",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: clr.AppColor.homePageDetail,
+                          ),
+                        ),
+                        SizedBox(height: 10,),
+                        RichText(text: TextSpan(
+                          text: "We are Live\n",
+                          style: TextStyle(
+                            fontSize: 16,
+                            color:clr.AppColor.homePagePlanColor,
+                          ),
+                          children: [
+                           TextSpan(
+                             text: "Watch the Live streaming",
+                            ),
+                          ],
+                        ),
+                        ),
+                      ],
+                    ),
+                  ),
               ],
               ),
             ),
+            Row(
+              children: [
+                Text(
+                  "Upcoming matches",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: clr.AppColor.homePageTitle
+                  ),
+                ),
+              ],
+            ),
+            Expanded(child: ListView.builder(
+              itemBuilder: (_, i) {
+                return Row(
+                  children: [
+                    Container(
+                      width:200,
+                      height: 165,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        image: DecorationImage(
+                          image: AssetImage(
+                            "assets/ex1.png"
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              }),
+              ),
+
           ],
         ),
       ),
