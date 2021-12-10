@@ -5,9 +5,6 @@ import 'customcolors.dart' as clr;
 
 
 
-
-
-
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
