@@ -176,7 +176,56 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-
+            Container(
+              height: 180,
+              width: MediaQuery.of(context).size.width,
+              child: Stack(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(top: 30) ,
+                    width: MediaQuery.of(context).size.width,
+                    height: 120,
+                    decoration: BoxDecoration(
+                      color: clr.AppColor.homePageDetail,
+                      borderRadius: BorderRadius.circular(20),
+                      image: DecorationImage(
+                        image: AssetImage(
+                          "assets/card.jpg"
+                        ),
+                        fit: BoxFit.fill,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 20,
+                          offset: Offset(8, 12),
+                          color: clr.AppColor.gradientSecond.withOpacity(0.4),
+                        ),
+                        BoxShadow(
+                          blurRadius: 20,
+                          offset: Offset(-2, -6),
+                          color: clr.AppColor.gradientSecond.withOpacity(0.3)
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    height: 210,
+                    width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.only(right: 230, bottom: 45),
+                    decoration: BoxDecoration(
+                      // color: Colors.redAccent.withOpacity(0.4),
+                      borderRadius: BorderRadius.circular(20),
+                      image: DecorationImage(
+                        image: AssetImage(
+                          "assets/figure.png"
+                        ),
+                        // fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
+              ],
+              ),
+            ),
           ],
         ),
       ),
