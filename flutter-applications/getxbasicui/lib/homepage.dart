@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:getxbasicui/playlist.dart';
 import 'customcolors.dart' as clr;
 
 
@@ -82,10 +84,15 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(
                   width: 5,
                 ),
-                Icon(
-                  Icons.arrow_forward,
-                  size: 20,
-                  color: clr.AppColor.homePageIcons,
+                InkWell(
+                  onTap: () {
+                    Get.to(()=>PlayList());
+                  },
+                  child: Icon(
+                    Icons.arrow_forward,
+                    size: 20,
+                    color: clr.AppColor.homePageIcons,
+                  ),
                 )
               ],
             ),

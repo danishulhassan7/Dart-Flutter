@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'customcolors.dart' as clr;
 
 
@@ -15,6 +18,22 @@ class PlayList extends StatefulWidget {
 }
 
 class _PlayListState extends State<PlayList> {
+
+  List info = [];
+
+  _initJsonData() {
+    DefaultAssetBundle.of(context).loadString("json/videoinfo.json").then(
+      (value) {
+        info = json.decode(value);
+      });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _initJsonData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,9 +60,14 @@ class _PlayListState extends State<PlayList> {
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.arrow_back_ios,
-                        size: 20,
-                        color: clr.AppColor.secondPageIconColor
+                        InkWell(
+                          onTap: () {
+                            Get.back();
+                          },
+                          child: Icon(Icons.arrow_back_ios,
+                          size: 20,
+                          color: clr.AppColor.secondPageIconColor
+                          ),
                         ),
                         Expanded(child: Container()),
                         Icon(Icons.info_outline,
@@ -144,12 +168,60 @@ class _PlayListState extends State<PlayList> {
                             ],
                           ),
                         ),
+
                       ],
                     ),
-
                   ],
                 ),
               ),
+            ),
+            Expanded(child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(75),
+                ),
+              ),
+              child: Column(
+                children: [
+                  SizedBox(height:35,),
+                  Row(
+                    children: [
+                      SizedBox(width: 25,),
+                      Text(
+                        "Match Highlights : Pak V Aus",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: clr.AppColor.circuitsColor,
+                        ),
+                      ),
+                      Expanded(child: Container()),
+                      Row(
+                        children: [
+                          Icon(Icons.loop,
+                          size: 20,
+                          color: clr.AppColor.loopColor,
+                          ), 
+                          SizedBox(width: 7,),
+                          Text(
+                        "Next Match",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: clr.AppColor.setsColor,
+                        ),
+                      ),
+                      SizedBox(width: 20,),
+                        ],
+                      ),
+                      
+                    ],
+                  ),
+
+                ],
+              ),
+            ),
             ),
           ],
         ),
