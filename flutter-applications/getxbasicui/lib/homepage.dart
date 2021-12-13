@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
             Row(
               children: [
                 Text(
-                  "FutureTechWalay",
+                  "XPFantasy",
                   style: TextStyle(
                       fontSize: 30,
                       color: clr.AppColor.homePageTitle,
@@ -236,7 +236,7 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     height: 210,
                     width: MediaQuery.of(context).size.width,
-                    margin: const EdgeInsets.only(right: 230, bottom: 45),
+                    margin: const EdgeInsets.only(right: 200, bottom: 65),
                     decoration: BoxDecoration(
                       // color: Colors.redAccent.withOpacity(0.4),
                       borderRadius: BorderRadius.circular(20),
@@ -257,7 +257,7 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Cricket Fantasy League : XPF",
+                          "Cricket: XPF",
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -273,7 +273,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                           children: [
                            TextSpan(
-                             text: "Watch the Live streaming",
+                             text: "Watch Live",
                             ),
                           ],
                         ),
@@ -309,8 +309,8 @@ class _HomePageState extends State<HomePage> {
                     return Row(
                       children: [
                         Container(
-                          width:(MediaQuery.of(context).size.width-90)/2,
-                          height: 170,
+                          width:(MediaQuery.of(context).size.width-60)/2,
+                          height: 150,
                           margin: const EdgeInsets.only(left: 30, bottom:15, top: 15,),
                           padding: const EdgeInsets.only(bottom: 10,),
                           decoration: BoxDecoration(

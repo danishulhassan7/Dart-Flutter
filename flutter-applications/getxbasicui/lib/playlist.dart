@@ -158,7 +158,7 @@ class _PlayListState extends State<PlayList> {
                               ),
                               SizedBox(width: 10,),
                               Text(
-                                "Don't miss a single ball",
+                                "Ball by ball",
                                 style: TextStyle(
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold,
@@ -189,7 +189,7 @@ class _PlayListState extends State<PlayList> {
                     children: [
                       SizedBox(width: 25,),
                       Text(
-                        "Match Highlights : Pak V Aus",
+                        "Highlights : Pak V Aus",
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
