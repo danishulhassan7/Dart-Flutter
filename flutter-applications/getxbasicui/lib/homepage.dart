@@ -99,7 +99,7 @@ class _HomePageState extends State<HomePage> {
             SizedBox(height: 20,),
             Container(
               width: MediaQuery.of(context).size.width,
-              height: 220,
+              height: 210,
               decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
@@ -201,89 +201,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            Container(
-              height: 180,
-              width: MediaQuery.of(context).size.width,
-              child: Stack(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.only(top: 30) ,
-                    width: MediaQuery.of(context).size.width,
-                    height: 120,
-                    decoration: BoxDecoration(
-                      color: clr.AppColor.homePageDetail,
-                      borderRadius: BorderRadius.circular(20),
-                      image: DecorationImage(
-                        image: AssetImage(
-                          "assets/card.jpg"
-                        ),
-                        fit: BoxFit.fill,
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 20,
-                          offset: Offset(8, 12),
-                          color: clr.AppColor.gradientSecond.withOpacity(0.4),
-                        ),
-                        BoxShadow(
-                          blurRadius: 20,
-                          offset: Offset(-2, -6),
-                          color: clr.AppColor.gradientSecond.withOpacity(0.3)
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    height: 210,
-                    width: MediaQuery.of(context).size.width,
-                    margin: const EdgeInsets.only(right: 200, bottom: 65),
-                    decoration: BoxDecoration(
-                      // color: Colors.redAccent.withOpacity(0.4),
-                      borderRadius: BorderRadius.circular(20),
-                      image: DecorationImage(
-                        image: AssetImage(
-                          "assets/figure.png"
-                        ),
-                        // fit: BoxFit.fill,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    height: 100,
-                    width: double.maxFinite,
-                    // color: Colors.redAccent.withOpacity(0.3),
-                    margin: const EdgeInsets.only(left: 165, top: 42, right: 10,),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Cricket: XPF",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: clr.AppColor.homePageDetail,
-                          ),
-                        ),
-                        SizedBox(height: 10,),
-                        RichText(text: TextSpan(
-                          text: "We are Live\n",
-                          style: TextStyle(
-                            fontSize: 16,
-                            color:clr.AppColor.homePagePlanColor,
-                          ),
-                          children: [
-                           TextSpan(
-                             text: "Watch Live",
-                            ),
-                          ],
-                        ),
-                        ),
-                      ],
-                    ),
-                  ),
-              ],
-              ),
-            ),
+            SizedBox(height: 15,),
             Row(
               children: [
                 Text(
@@ -309,8 +227,8 @@ class _HomePageState extends State<HomePage> {
                     return Row(
                       children: [
                         Container(
-                          width:(MediaQuery.of(context).size.width-60)/2,
-                          height: 150,
+                          width:(MediaQuery.of(context).size.width-90)/2,
+                          height: 170,
                           margin: const EdgeInsets.only(left: 30, bottom:15, top: 15,),
                           padding: const EdgeInsets.only(bottom: 10,),
                           decoration: BoxDecoration(
