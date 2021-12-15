@@ -37,7 +37,8 @@ class _HomePageState extends State<HomePage> {
           Icons.person,
           size: 19,
           color: Colors.white,
-        )
+        ),
+        SizedBox(width: 15,)
       ],
     );
   }
