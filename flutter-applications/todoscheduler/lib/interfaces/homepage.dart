@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todoscheduler/services/theme_services.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -29,7 +30,9 @@ class _HomePageState extends State<HomePage> {
   _appBar() {
     return AppBar(
       leading: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          ThemeServices().SwitchTheme();
+        },
         child: Icon(Icons.nightlight_round, size: 19, color: Colors.white),
       ),
       actions: [
