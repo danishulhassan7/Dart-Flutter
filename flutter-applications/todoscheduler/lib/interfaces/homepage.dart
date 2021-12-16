@@ -46,10 +46,13 @@ class _HomePageState extends State<HomePage> {
       leading: GestureDetector(
         onTap: () {
           ThemeServices().switchTheme();
+
           notifier.displayNotification(
             title: "Theme Changed",
             body: Get.isDarkMode ? "Light Theme Activated" : "Dark Theme Activated"
           ); 
+
+          notifier.scheduledNotification();
         },
         child: Icon(Icons.nightlight_round, size: 19, color: Colors.white),
       ),
