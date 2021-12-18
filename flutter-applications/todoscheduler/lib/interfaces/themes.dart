@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 
 
@@ -21,5 +23,25 @@ class Themes {
     backgroundColor: grayishClr,
     primaryColor: darkHeaderClr,
     brightness: Brightness.dark,
+  );
+}
+
+TextStyle get subHeadingStyling {
+  return GoogleFonts.lato (
+    textStyle: TextStyle(
+      fontSize: 23,
+      fontWeight: FontWeight.bold,
+      color: Get.isDarkMode ? Colors.grey[500] : Colors.grey
+    ),
+  );
+}
+
+TextStyle get headingStyling {
+  return GoogleFonts.lato (
+    textStyle: TextStyle(
+      fontSize: 29,
+      fontWeight: FontWeight.bold,
+      color: Get.isDarkMode ? Colors.white: Colors.black 
+    ),
   );
 }
