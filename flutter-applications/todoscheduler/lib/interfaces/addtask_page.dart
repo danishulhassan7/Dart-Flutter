@@ -2,6 +2,7 @@ import 'dart:js';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:todoscheduler/interfaces/themes.dart';
 
 class AddTaskPage extends StatelessWidget {
   const AddTaskPage({Key? key}) : super(key: key);
@@ -11,9 +12,18 @@ class AddTaskPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: context.theme.backgroundColor,
       appBar: _appBar(context),
-      body: Container(),
+      body: Container(
+        child:Column(
+          children: [
+            Text("Add Task",
+            style: headingStyling,)
+          ],
+        ),
+      ),
     );
   }
+
+
 
   _appBar(BuildContext context) {
     return AppBar(
@@ -37,6 +47,5 @@ class AddTaskPage extends StatelessWidget {
       ],
     );
   }
-
 
 }
