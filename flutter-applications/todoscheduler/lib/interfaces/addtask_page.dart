@@ -17,6 +17,9 @@ class _AddTaskPageState extends State<AddTaskPage> {
   DateTime _selectedDate = DateTime.now();
   String _startTime = DateFormat("hh:mm a").format(DateTime.now()).toString();
   String _endTime = "7.30 P.M";
+  int num =5;
+  List<int> remindlistmembers = [5,10,15,20,25];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,6 +86,27 @@ class _AddTaskPageState extends State<AddTaskPage> {
                     ),
                   ),
                 ],
+              ),
+              CustomInputField(title: "Remind", hint: "$num minutes remaining",
+              widget: DropdownButton(
+                icon: Icon(Icons.keyboard_arrow_down,
+                color: Colors.grey,),
+                iconSize: 32,
+                elevation: 4,
+                style: subtitleStyling,
+                underline: Container(height: 0,),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    num = int.parse(newValue!);
+                  });
+                },
+                items: remindlistmembers.map<DropdownMenuItem<String>>((int value){
+                  return DropdownMenuItem<String> (
+                    value: value.toString(),
+                    child: Text(value.toString()),
+                  );
+                }).toList(),
+              ),
               ),
             ],
           ),
