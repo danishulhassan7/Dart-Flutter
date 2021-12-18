@@ -11,7 +11,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   var notifier;
 
   @override
@@ -48,13 +47,14 @@ class _HomePageState extends State<HomePage> {
           ThemeServices().switchTheme();
 
           notifier.displayNotification(
-            title: "Theme Changed",
-            body: Get.isDarkMode ? "Light Theme Activated" : "Dark Theme Activated"
-          ); 
+              title: "Theme Changed",
+              body: Get.isDarkMode
+                  ? "Light Theme Activated"
+                  : "Dark Theme Activated");
 
           notifier.scheduledNotification();
         },
-        child: Icon(Icons.nightlight_round, size: 19, color: Colors.white),
+        child: Icon(Get.isDarkMode ? Icons.wb_sunny_outlined: Icons.nightlight_round_outlined , size: 19, color: Get.isDarkMode ? Colors.white : Colors.black ),
       ),
       actions: [
         Icon(
@@ -62,7 +62,9 @@ class _HomePageState extends State<HomePage> {
           size: 19,
           color: Colors.white,
         ),
-        SizedBox(width: 15,)
+        SizedBox(
+          width: 15,
+        )
       ],
     );
   }
