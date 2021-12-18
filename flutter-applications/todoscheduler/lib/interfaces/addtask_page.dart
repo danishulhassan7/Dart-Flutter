@@ -19,6 +19,8 @@ class _AddTaskPageState extends State<AddTaskPage> {
   String _endTime = "7.30 P.M";
   int num =5;
   List<int> remindlistmembers = [5,10,15,20,25];
+  String str ="Never";
+  List<String> strremindlistmembers = ["Never", "Daily", "Weekly", "Monthly"];
 
   @override
   Widget build(BuildContext context) {
@@ -108,6 +110,30 @@ class _AddTaskPageState extends State<AddTaskPage> {
                 }).toList(),
               ),
               ),
+
+              CustomInputField(title: "Repeat", hint: "$str",
+              widget: DropdownButton(
+                icon: Icon(Icons.keyboard_arrow_down,
+                color: Colors.grey,),
+                iconSize: 32,
+                elevation: 4,
+                style: subtitleStyling,
+                underline: Container(height: 0,),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    str = newValue!;
+                  });
+                },
+                items: strremindlistmembers.map<DropdownMenuItem<String>>((String value){
+                  return DropdownMenuItem<String> (
+                    value: value,
+                    child: Text(value, style: TextStyle(color: Colors.grey),),
+                  );
+                }).toList(),
+              ),
+              ),
+              
+
             ],
           ),
         ),
