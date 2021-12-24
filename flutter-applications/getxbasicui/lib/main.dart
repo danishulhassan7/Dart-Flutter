@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getxbasicui/homepage.dart';
-import 'package:getxbasicui/playlist.dart';
+// import 'package:getxbasicui/playlist.dart';
 
 void main() {
   runApp(MyApp());
