@@ -1,31 +1,34 @@
-
-
-
 import 'package:flutter/material.dart';
 import 'package:socialfeed/widgets/app_large_text.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({ Key? key }) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
-
   @override
   Widget build(BuildContext context) {
-  TabController _tabController = TabController(length: 3, vsync: this);
+    TabController _tabController = TabController(length: 3, vsync: this);
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           //Menu
           Container(
-            padding: const EdgeInsets.only(top: 65, left: 20, right: 20,),
+            padding: const EdgeInsets.only(
+              top: 65,
+              left: 20,
+              right: 20,
+            ),
             child: Row(
               children: [
-                Icon(Icons.menu, color: Colors.black54,),
+                Icon(
+                  Icons.menu,
+                  color: Colors.black54,
+                ),
                 Expanded(child: Container()),
                 Container(
                   height: 52,
@@ -38,13 +41,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ],
             ),
           ),
-          SizedBox(height: 36,),
+          SizedBox(
+            height: 16,
+          ),
           //LargeText
           Container(
             padding: const EdgeInsets.only(left: 18),
             child: AppLargeText(text: "Google Technologies"),
           ),
-          SizedBox(height: 36,),
+          SizedBox(
+            height: 16,
+          ),
           //TabBar
           Container(
             alignment: Alignment.centerLeft,
@@ -58,31 +65,52 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 controller: _tabController,
                 indicator: CircleTabIndicator(color: Colors.black45, radius: 4),
                 tabs: [
-                  Tab(text: "Places",),
-                  Tab(text: "Inspirations",),
-                  Tab(text: "Feelings",),
+                  Tab(
+                    text: "Places",
+                  ),
+                  Tab(
+                    text: "Inspirations",
+                  ),
+                  Tab(
+                    text: "Feelings",
+                  ),
                 ],
               ),
             ),
           ),
           Container(
+            padding: const EdgeInsets.only(left: 20,),
             height: 300,
             width: double.maxFinite,
-            child: TabBarView(
-              controller: _tabController,
-              children: [
-                Text("Assalam O Alaikum"),
-                Text("Waiting..."),
-                Text("Walaikum Salam"),
-              ]
+            child: TabBarView(controller: _tabController, children: [
+              ListView.builder(
+                itemCount: 5,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    margin: const EdgeInsets.only(right: 10, top: 12),
+                    height: 300,
+                    width: 190,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.white,
+                      image: DecorationImage(
+                        image: AssetImage("img/mountain.jpeg"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  );
+                },
               ),
+              Text("Waiting..."),
+              Text("Walaikum Salam"),
+            ]),
           )
         ],
       ),
     );
   }
 }
-
 
 class CircleTabIndicator extends Decoration {
   final Color color;
@@ -91,9 +119,8 @@ class CircleTabIndicator extends Decoration {
   @override
   BoxPainter createBoxPainter([VoidCallback? onChanged]) {
     // TODO: implement createBoxPainter
-    return _CirclePainter(color:color, radius: radius);
+    return _CirclePainter(color: color, radius: radius);
   }
-
 }
 
 class _CirclePainter extends BoxPainter {
@@ -105,9 +132,10 @@ class _CirclePainter extends BoxPainter {
     Paint _paint = Paint();
     _paint.color = color;
     _paint.isAntiAlias = true;
-    final Offset circleOffset = Offset(configuration.size!.width/2 - radius/2, configuration.size!.height - radius);
+    final Offset circleOffset = Offset(
+        configuration.size!.width / 2 - radius / 2,
+        configuration.size!.height - radius);
 
-    canvas.drawCircle(offset+circleOffset, radius, _paint);
+    canvas.drawCircle(offset + circleOffset, radius, _paint);
   }
-
 }
