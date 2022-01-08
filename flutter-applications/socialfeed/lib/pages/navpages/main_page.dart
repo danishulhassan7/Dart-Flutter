@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:socialfeed/pages/navpages/baritem_page.dart';
-import 'package:socialfeed/pages/navpages/home_page.dart';
+import 'package:socialfeed/pages/home_page.dart';
 import 'package:socialfeed/pages/navpages/my_page.dart';
 import 'package:socialfeed/pages/navpages/search_page.dart';
 
