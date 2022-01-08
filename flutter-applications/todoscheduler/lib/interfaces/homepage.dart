@@ -96,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                   style: subHeadingStyling,
                 ),
                 Text(
-                  "Tomorrow",
+                  "Todayy",
                   style: headingStyling,
                 )
               ],
@@ -132,7 +132,7 @@ class _HomePageState extends State<HomePage> {
       ),
       actions: [
         CircleAvatar(
-          backgroundImage: AssetImage("images/dp.png"),
+          backgroundImage: AssetImage("images/upd-1.png"),
         ),
         SizedBox(
           width: 15,
