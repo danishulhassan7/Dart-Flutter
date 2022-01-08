@@ -11,6 +11,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+
+  var images = {
+    "balloning.png" : "Balloning",
+    "kayaking.png" : "KayaKing",
+    "snorkling.png" : "Snorkling",
+    "hiking.png" : "Hiking"
+  };
+
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 3, vsync: this);
@@ -140,25 +148,33 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             width: double.maxFinite,
             margin: const EdgeInsets.only(left: 20),
             child: ListView.builder(
-                itemCount: 8,
+                itemCount: 4,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (_, index) {
-                  return Column(
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.only(right: 20, top: 4),
-                        height: 80,
-                        width: 80,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.white,
-                          image: DecorationImage(
-                            image: AssetImage("img/mountain.jpeg"),
-                            fit: BoxFit.cover,
+                  return Container(
+                    margin: const EdgeInsets.only(right: 37),
+                    child: Column(
+                      children: [
+                        Container(
+                          // margin: const EdgeInsets.only(right: 20, top: 4),
+                          height: 80,
+                          width: 80,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.white,
+                            image: DecorationImage(
+                              image: AssetImage("img/"+images.keys.elementAt(index)),
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                        SizedBox(height: 7,),
+                        //Text for images
+                        Container(
+                          child: AppText(text: images.values.elementAt(index), color: AppColors.textColor2,),
+                        ),
+                      ],
+                    ),
                   );
                 }),
           ),
