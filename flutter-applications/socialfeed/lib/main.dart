@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:socialfeed/pages/details_page.dart';
 import 'package:socialfeed/pages/navpages/main_page.dart';
 import 'package:socialfeed/pages/welcome_page.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: MainPage(),
+      home: DetailsPage(),
     );
   }
 }
