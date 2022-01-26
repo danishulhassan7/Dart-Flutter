@@ -11,13 +11,16 @@ class RoundBtn extends StatelessWidget {
     return GestureDetector(
       onTap: onPress,
       child: Container(
-        height: 24,
-        width: 24,
+        margin: const EdgeInsets.all(3),
+        height: 23,
+        width: 23,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16), color: Colors.yellow[800]),
-        child: Text(
-          txt,
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+            borderRadius: BorderRadius.circular(11), color: Colors.yellow[800]),
+        child: Center(
+          child: Text(
+            txt,
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+          ),
         ),
       ),
     );

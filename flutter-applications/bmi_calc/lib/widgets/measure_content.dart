@@ -23,16 +23,18 @@ class MeasureContent extends StatelessWidget {
       children: [
         Text(title),
         Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(measure.toString(),
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 42,
+              fontSize: 19,
             ),),
             Text(unit)
           ],
         ),
         Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             RoundBtn(onPress: decrement, txt: "-"),
             RoundBtn(onPress: increment, txt: "+"),
