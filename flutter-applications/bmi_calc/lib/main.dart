@@ -1,4 +1,3 @@
-import 'dart:html';
 import 'dart:math';
 
 import 'package:bmi_calc/widgets/icon_content.dart';
@@ -114,6 +113,7 @@ class _HomePageState extends State<HomePage> {
                     });
                   })),
         ]),
+
         //For Calculation
         GestureDetector(
           onTap: () {
