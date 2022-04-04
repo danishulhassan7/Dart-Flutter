@@ -1,0 +1,321 @@
+import 'dart:convert';
+// import 'dart:ui';
+import 'package:asg1/playlist.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'customcolors.dart' as clr;
+
+
+
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+  List info = [];
+
+  _initJsonData() {
+    DefaultAssetBundle.of(context).loadString("json/info.json").then(
+      (value) {
+        info = json.decode(value);
+      });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _initJsonData();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: clr.AppColor.homePageBackground,
+      body: Container(
+        padding: const EdgeInsets.only(top: 50, left: 30, right: 30),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Text(
+                  "XPFantasy",
+                  style: TextStyle(
+                      fontSize: 30,
+                      color: clr.AppColor.homePageTitle,
+                      fontWeight: FontWeight.bold),
+                ),
+                Expanded(child: Container()),
+                Icon(Icons.arrow_back_ios,
+                    size: 20, color: clr.AppColor.homePageIcons),
+                const SizedBox(
+                  width: 6,
+                ),
+                Icon(Icons.calendar_today_outlined,
+                    size: 20, color: clr.AppColor.homePageIcons),
+                const SizedBox(
+                  width: 12,
+                ),
+                Icon(Icons.arrow_forward_ios,
+                    size: 20, color: clr.AppColor.homePageIcons),
+              ],
+            ),
+            const SizedBox(height: 30,),
+            Row(
+              children: [
+                Text(
+                  "Join our program",
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: clr.AppColor.homePageSubtitle,
+                      fontWeight: FontWeight.bold),
+                ),
+                Expanded(child: Container()),
+                Text(
+                  "Details",
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: clr.AppColor.homePageDetail,
+                  ),
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                InkWell(
+                  onTap: () {
+                    Get.to(()=>const PlayList());
+                  },
+                  child: Icon(
+                    Icons.arrow_forward,
+                    size: 20,
+                    color: clr.AppColor.homePageIcons,
+                  ),
+                )
+              ],
+            ),
+            const  SizedBox(height: 20,),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 210,
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      clr.AppColor.gradientFirst.withOpacity(0.8),
+                      clr.AppColor.gradientSecond.withOpacity(0.9),
+                    ],
+                    begin: Alignment.bottomLeft,
+                    end: Alignment.centerRight,
+                  ),
+                  borderRadius: const  BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                    bottomLeft: Radius.circular(10),
+                    bottomRight: Radius.circular(10),
+                    topRight: Radius.circular(65),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      offset:const Offset(7, 10),
+                      blurRadius: 12,
+                      color: clr.AppColor.gradientSecond.withOpacity(0.2),
+                    ),
+                  ]),
+              child: Container(
+                padding: const EdgeInsets.only(left: 16, top: 26, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Live Score",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: clr.AppColor.homePageContainerTextSmall,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      "Follow us to get",
+                      style: TextStyle(
+                        fontSize: 24,
+                        color: clr.AppColor.homePageContainerTextSmall,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      "Ball by ball updates",
+                      style: TextStyle(
+                        fontSize: 24,
+                        color: clr.AppColor.homePageContainerTextSmall,
+                      ),
+                    ),
+                    const SizedBox(height: 30,),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.timer,
+                              size: 20,
+                              color: clr.AppColor.homePageContainerTextSmall,
+                            ),
+                            const SizedBox(
+                              width: 7,
+                            ),
+                            Text(
+                              "30 minutes",
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: clr.AppColor.homePageContainerTextSmall,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Expanded(child: Container()),
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            boxShadow: [
+                              BoxShadow(
+                              color: clr.AppColor.gradientFirst,
+                              offset: const Offset(6, 7),
+                              blurRadius: 12,
+                            ),
+                            ],
+                          ),
+                          child: Icon(
+                            Icons.play_circle_fill_outlined,
+                            size: 50,
+                            color: clr.AppColor.homePageContainerTextSmall,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 15,),
+            Row(
+              children: [
+                Text(
+                  "Upcoming matches",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: clr.AppColor.homePageTitle
+                  ),
+                ),
+              ],
+            ),
+            Expanded(child: OverflowBox(
+              maxWidth: MediaQuery.of(context).size.width,
+              child: MediaQuery.removePadding(
+                removeTop: true,
+                context: context,
+                child: ListView.builder(
+                  itemCount: (info.length.toDouble()~/2).toInt(),
+                  itemBuilder: (_, i) {
+                    int a = 2*i; //0, 2, 4, 6 ...
+                    int b = 2*i + 1; //1, 3, 5, 7 ...
+                    return Row(
+                      children: [
+                        Container(
+                          width:(MediaQuery.of(context).size.width-90)/2,
+                          height: 170,
+                          margin: const EdgeInsets.only(left: 30, bottom:15, top: 15,),
+                          padding: const EdgeInsets.only(bottom: 10,),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                            image: DecorationImage(
+                              image: AssetImage(
+                                info[a]["img"]
+                              ),
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 3,
+                                offset: const Offset(5, 5),
+                                color: clr.AppColor.gradientSecond.withOpacity(0.3),
+                              ),
+                              BoxShadow(
+                                blurRadius: 3,
+                                offset: const Offset(-5, -5),
+                                color: clr.AppColor.gradientSecond.withOpacity(0.3),
+                              ),
+                            ],
+                          ),
+                          child: Center(
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(
+                                info[a]["title"],
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: clr.AppColor.homePageDetail,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width:(MediaQuery.of(context).size.width-90)/2,
+                          height: 170,
+                          margin: const EdgeInsets.only(left: 30, bottom:15, top: 15,),
+                          padding: const EdgeInsets.only(bottom: 10,),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                            image: DecorationImage(
+                              image: AssetImage(
+                                info[b]["img"]
+                              ),
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 3,
+                                offset: const Offset(5, 5),
+                                color: clr.AppColor.gradientSecond.withOpacity(0.3),
+                              ),
+                              BoxShadow(
+                                blurRadius: 3,
+                                offset: const Offset(-5, -5),
+                                color: clr.AppColor.gradientSecond.withOpacity(0.3),
+                              ),
+                            ],
+                          ),
+                          child: Center(
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(
+                                info[b]["title"],
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: clr.AppColor.homePageDetail,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    );
+                  }),
+              ),
+            ),
+              ),
+
+          ],
+        ),
+      ),
+    );
+  }
+}

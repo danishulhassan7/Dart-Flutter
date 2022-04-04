@@ -1,0 +1,26 @@
+[
+    {
+        "title" : "Batsmen",
+        "img": "assets/ex1.png"
+    },
+    {
+        "title" : "Bowler",
+        "img": "assets/ex2.png"
+    },
+    {
+        "title" : "Fielder",
+        "img": "assets/ex3.png"
+    },
+    {
+        "title" : "Allrounder",
+        "img": "assets/ex4.png"
+    },
+    {
+        "title" : "Batter",
+        "img": "assets/ex1.png"
+    },
+    {
+        "title" : "Batsmen",
+        "img": "assets/ex2.png"
+    }
+]

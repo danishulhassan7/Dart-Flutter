@@ -96,8 +96,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             height: 300,
             width: double.maxFinite,
             child: TabBarView(controller: _tabController, children: [
-              ListView.builder(
+              Expanded(child: ListView.builder(
                 itemCount: 5,
+                shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
@@ -114,7 +115,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     ),
                   );
                 },
-              ),
+              ),),
               Text("Waiting..."),
               Text("Walaikum Salam"),
             ]),
@@ -147,8 +148,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             height: 110,
             width: double.maxFinite,
             margin: const EdgeInsets.only(left: 20),
-            child: ListView.builder(
+            child: Expanded(child: ListView.builder(
                 itemCount: 4,
+                shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (_, index) {
                   return Container(
@@ -176,7 +178,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       ],
                     ),
                   );
-                }),
+                }),),
           ),
         ],
       ),
