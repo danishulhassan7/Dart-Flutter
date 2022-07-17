@@ -1,22 +1,15 @@
 import 'package:flutter/material.dart';
 
-void main () {
-  return runApp(MusicVine(),);
-}
+void main() => runApp(XylophoneApp());
 
-class MusicVine extends StatelessWidget {
-
+class XylophoneApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 226, 188, 53),
-        appBar: AppBar(
-          backgroundColor: Colors.amberAccent,
-        ),
-        body: const Center(
-          child: Text('Hello'),
+        backgroundColor:Colors.orange,
+        body: SafeArea(
+          child: Container(),
         ),
       ),
     );
